@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('condition_logs', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('furniture_id')->constrained('furniture')->onDelete('cascade');
+            $table->string('old_condition');
+            $table->string('new_condition');
+            $table->text('note')->nullable();
+            $table->timestamp('changed_at');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('condition_logs');
+    }
+};
