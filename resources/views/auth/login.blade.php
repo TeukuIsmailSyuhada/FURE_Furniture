@@ -1,153 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Login Admin - FURE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <style>
         body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--fure-bg);
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-            font-family: 'Outfit', sans-serif;
+            margin: 0;
             overflow: hidden;
         }
+
         .login-container {
-            width: 100%;
-            max-width: 450px;
-            padding: 20px;
-            position: relative;
+            display: flex;
+            width: 1000px;
+            max-width: 95vw;
+            height: 600px;
+            background: white;
+            border: 1px solid var(--fure-border);
+            overflow: hidden;
         }
-        .login-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-            padding: 40px;
-            transition: all 0.3s ease;
-        }
-        .login-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
-        }
-        .brand-logo {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--fure-primary);
-            letter-spacing: -1px;
-            margin-bottom: 5px;
-        }
-        .form-control {
-            border-radius: 12px;
-            padding: 12px 18px;
-            border: 1px solid #e5e7eb;
-            background-color: #f9fafb;
-            transition: all 0.2s;
-        }
-        .form-control:focus {
-            background-color: #fff;
-            border-color: var(--fure-primary);
-            box-shadow: 0 0 0 4px rgba(139, 94, 60, 0.1);
-        }
-        .btn-login {
-            background: var(--fure-primary);
+
+        .login-visual {
+            flex: 1;
+            background: linear-gradient(rgba(78, 52, 46, 0.4), rgba(78, 52, 46, 0.4)), url('https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 50px;
             color: white;
-            border: none;
-            border-radius: 12px;
-            padding: 14px;
-            font-weight: 600;
-            width: 100%;
-            margin-top: 10px;
-            transition: all 0.3s;
         }
-        .btn-login:hover {
-            background: #6F4B30;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(139, 94, 60, 0.2);
+
+        .login-form-side {
+            width: 450px;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-        .decorative-circle {
-            position: absolute;
-            z-index: -1;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--fure-primary), var(--fure-secondary));
-            opacity: 0.1;
+
+        .form-control {
+            border-radius: 0;
+            border: 1px solid #eee;
+            padding: 12px 15px;
+            background-color: #fcfcfc;
+            font-size: 0.9rem;
         }
-        .circle-1 {
-            width: 300px;
-            height: 300px;
-            top: -150px;
-            right: -150px;
+
+        .form-control:focus {
+            border-color: var(--fure-primary);
+            box-shadow: none;
+            background-color: white;
         }
-        .circle-2 {
-            width: 200px;
-            height: 200px;
-            bottom: -100px;
-            left: -100px;
+
+        .login-visual h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 20px;
+            letter-spacing: -0.04em;
+        }
+
+        .login-visual p {
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 900px) {
+            .login-visual {
+                display: none;
+            }
+            .login-container {
+                width: 450px;
+                height: auto;
+            }
+            .login-form-side {
+                width: 100%;
+                padding: 40px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="decorative-circle circle-1"></div>
-    <div class="decorative-circle circle-2"></div>
-
     <div class="login-container">
-        <div class="login-card">
-            <div class="text-center mb-5">
-                <div class="brand-logo">FURE</div>
-                <p class="text-muted">Furniture & Inventory Management</p>
+        <div class="login-visual">
+            <div class="d-flex align-items-center mb-4">
+                <div class="bg-white text-fure-primary p-2 d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
+                    <i class="bi bi-chair-fill fs-5"></i>
+                </div>
+                <span class="brand-text text-white fs-3">FURE</span>
             </div>
-            
-            @if(session('error'))
-                <div class="alert alert-danger border-0 small py-2 mb-4 d-flex align-items-center">
-                    <i class="bi bi-exclamation-circle me-2"></i>
-                    {{ session('error') }}
+            <h2>Manajer <br><i class="playfair">Interior Professional.</i></h2>
+            <p>Akses konsol administrasi untuk mengelola aset dan inventaris furniture terbaik Anda.</p>
+        </div>
+        <div class="login-form-side">
+            <div class="mb-5">
+                <h3 class="fw-bold mb-2" style="font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.02em;">Selamat Datang</h3>
+                <p class="text-muted small">Silakan masuk menggunakan akun administratif Anda.</p>
+            </div>
+
+            @if ($errors->any())
+                <div class="alert alert-danger border-0 small mb-4">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="alert alert-danger border-0 small mb-4">
+                    <i class="bi bi-exclamation-circle me-2"></i> {{ session('error') }}
                 </div>
             @endif
 
             <form action="{{ route('login') }}" method="POST">
                 @csrf
                 <div class="mb-4">
-                    <label class="form-label small fw-bold text-dark">Alamat Email</label>
-                    <div class="input-group">
-                        <span class="input-group-text bg-transparent border-end-0 pe-0 text-muted">
-                            <i class="bi bi-envelope"></i>
-                        </span>
-                        <input type="email" name="email" class="form-control border-start-0 ps-2" placeholder="admin@fure.com" required>
-                    </div>
+                    <label class="form-label small text-uppercase fw-bold ls-wide" style="font-size: 0.7rem;">Email Address</label>
+                    <input type="email" name="email" class="form-control" placeholder="admin@fure.com" required autofocus>
                 </div>
                 <div class="mb-4">
-                    <label class="form-label small fw-bold text-dark">Password</label>
-                    <div class="input-group">
-                        <span class="input-group-text bg-transparent border-end-0 pe-0 text-muted">
-                            <i class="bi bi-lock"></i>
-                        </span>
-                        <input type="password" name="password" class="form-control border-start-0 ps-2" placeholder="••••••••" required>
-                    </div>
+                    <label class="form-label small text-uppercase fw-bold ls-wide" style="font-size: 0.7rem;">Password Security</label>
+                    <input type="password" name="password" class="form-control" placeholder="••••••••" required>
                 </div>
-                <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="mb-4 d-flex justify-content-between align-items-center">
                     <div class="form-check">
-                        <input type="checkbox" name="remember" class="form-check-input" id="remember">
-                        <label class="form-check-label small text-muted" for="remember">Ingat Saya</label>
+                        <input class="form-check-input" type="checkbox" id="remember" name="remember">
+                        <label class="form-check-label small text-muted" for="remember">Ingat saya</label>
                     </div>
-                    <a href="#" class="small text-decoration-none text-primary">Lupa Password?</a>
                 </div>
-                <button type="submit" class="btn btn-login">
-                    Masuk Sekarang <i class="bi bi-arrow-right ms-2"></i>
-                </button>
+                <button type="submit" class="btn btn-primary w-100 py-3 mb-4 shadow-fure">Masuk ke Konsol</button>
+                
+                <div class="text-center">
+                    <a href="/" class="text-decoration-none text-muted small"><i class="bi bi-arrow-left me-1"></i> Kembali ke Beranda</a>
+                </div>
             </form>
-            
-            <div class="text-center mt-5">
-                <a href="/" class="text-decoration-none text-muted small d-flex align-items-center justify-content-center">
-                    <i class="bi bi-chevron-left me-1"></i> Kembali ke Halaman Utama
-                </a>
-            </div>
         </div>
     </div>
 </body>

@@ -16,8 +16,10 @@ class FurnitureController extends Controller
         $query = Furniture::with(['category', 'location']);
 
         if ($request->search) {
-            $query->where('name', 'like', '%' . $request->search . '%')
+            $query->where(function($q) use ($request) {
+                $q->where('name', 'like', '%' . $request->search . '%')
                   ->orWhere('code', 'like', '%' . $request->search . '%');
+            });
         }
 
         if ($request->category_id) {
@@ -32,7 +34,7 @@ class FurnitureController extends Controller
             $query->where('condition', $request->condition);
         }
 
-        $furnitures = $query->latest()->get();
+        $furnitures = $query->latest()->paginate(12);
         $categories = Category::all();
         $locations = Location::all();
 
