@@ -6,8 +6,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Login Admin - FURE</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <style>
         body {
@@ -33,7 +33,7 @@
 
         .login-visual {
             flex: 1;
-            background: linear-gradient(rgba(78, 52, 46, 0.4), rgba(78, 52, 46, 0.4)), url('https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80');
+            background: linear-gradient(rgba(78, 52, 46, 0.4), rgba(78, 52, 46, 0.4)), url('{{ asset('images/login-bg.jpg') }}');
             background-size: cover;
             background-position: center;
             display: flex;

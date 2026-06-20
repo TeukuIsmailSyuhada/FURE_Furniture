@@ -7,8 +7,8 @@
     <title>@yield('title') - Console FURE</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <style>
         body {
@@ -228,7 +228,7 @@
                 <ul class="nav flex-column">
                     <li class="nav-item">
                         <a href="{{ route('furnitures.index') }}" class="nav-link {{ request()->routeIs('furnitures.*') ? 'active' : '' }}">
-                            <i class="bi bi-chair"></i> Furniture
+                            <i class="bi bi-box-seam"></i> Furniture
                         </a>
                     </li>
                     <li class="nav-item">
@@ -337,7 +337,7 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script>
         document.getElementById('sidebarCollapse')?.addEventListener('click', function() {
             document.getElementById('sidebar').classList.toggle('active');

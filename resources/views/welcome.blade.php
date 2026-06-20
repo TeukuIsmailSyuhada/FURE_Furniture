@@ -7,9 +7,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>FURE - Eksklusivitas Pengelolaan Furniture</title>
     <!-- CSS Dependencies -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     
     <style>
@@ -70,7 +70,7 @@
 
         .hero-section {
             padding: 160px 0;
-            background: linear-gradient(rgba(252, 251, 250, 0.7), rgba(252, 251, 250, 0.7)), url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(252, 251, 250, 0.7), rgba(252, 251, 250, 0.7)), url('{{ asset('images/hero-bg.jpg') }}');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -273,7 +273,7 @@
         <div class="container-fluid px-0">
             <div class="row g-0">
                 <div class="col-md-6">
-                    <div class="furniture-preview" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=80')">
+                    <div class="furniture-preview" style="background-image: url('{{ asset('images/gallery-1.jpg') }}')">
                         <div class="overlay-text">
                             <span class="small fw-bold text-uppercase ls-wide">Koleksi Admin</span>
                             <h3 class="playfair">Desain Modern Minimalis</h3>
@@ -281,7 +281,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="furniture-preview" style="background-image: url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80')">
+                    <div class="furniture-preview" style="background-image: url('{{ asset('images/gallery-2.jpg') }}')">
                         <div class="overlay-text">
                             <span class="small fw-bold text-uppercase ls-wide">Manajemen Ruang</span>
                             <h3 class="playfair">Optimalisasi Estetika Ruang</h3>
@@ -340,7 +340,7 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script>
         window.addEventListener('load', function() {
             setTimeout(function() {
