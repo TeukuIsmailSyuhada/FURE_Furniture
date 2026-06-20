@@ -30,6 +30,15 @@ class StockTransactionController extends Controller
         return view('admin.stock-transactions.index', compact('transactions', 'furnitures'));
     }
 
+    /**
+     * Redirect ke halaman index dengan instruksi membuka modal tambah transaksi.
+     * Form penambahan transaksi menggunakan modal Bootstrap, bukan halaman terpisah.
+     */
+    public function create()
+    {
+        return redirect()->route('stock-transactions.index');
+    }
+
     public function store(Request $request)
     {
         $request->validate([

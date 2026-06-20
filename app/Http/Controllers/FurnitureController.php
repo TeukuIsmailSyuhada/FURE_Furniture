@@ -62,7 +62,12 @@ class FurnitureController extends Controller
             'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        $data = $request->all();
+        // Ambil hanya field yang diizinkan (hindari mass assignment _token dll)
+        $data = $request->only([
+            'code', 'name', 'category_id', 'location_id',
+            'material', 'color', 'size', 'weight',
+            'stock', 'minimum_stock', 'condition', 'status', 'description',
+        ]);
 
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('furnitures', 'public');
@@ -100,7 +105,13 @@ class FurnitureController extends Controller
             'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        $data = $request->all();
+        // Ambil hanya field yang boleh diupdate — 'stock' dikecualikan karena
+        // perubahan stok harus melalui menu Pergerakan Stok (StockTransactionController)
+        $data = $request->only([
+            'code', 'name', 'category_id', 'location_id',
+            'material', 'color', 'size', 'weight',
+            'minimum_stock', 'condition', 'status', 'description',
+        ]);
 
         if ($request->hasFile('image')) {
             if ($furniture->image) {

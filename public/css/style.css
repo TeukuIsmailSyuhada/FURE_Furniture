@@ -439,3 +439,114 @@ h1, h2, h3, h4, h5, h6 {
 .bg-fure-bg {
     background-color: var(--fure-bg) !important;
 }
+
+/* =============================
+   FURE Custom Pagination
+   ============================= */
+.fure-pagination-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 8px 0;
+    flex-wrap: wrap;
+}
+
+.fure-pagination-info {
+    font-size: 0.78rem;
+    color: var(--fure-text-muted);
+    letter-spacing: 0.02em;
+}
+
+.fure-pagination-info strong {
+    color: var(--fure-primary);
+    font-weight: 600;
+}
+
+/* Pagination list */
+.fure-pagination {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 4px;
+}
+
+/* Each page item */
+.fure-page-item {
+    display: flex;
+}
+
+/* Page link base */
+.fure-page-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+    height: 34px;
+    padding: 0 10px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--fure-text);
+    background: #fff;
+    border: 1px solid var(--fure-border);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    letter-spacing: 0;
+    line-height: 1;
+    user-select: none;
+}
+
+/* Hover state */
+a.fure-page-link:hover {
+    background: var(--fure-bg);
+    border-color: var(--fure-primary);
+    color: var(--fure-primary);
+    transform: none;
+    box-shadow: none;
+}
+
+/* Active (current page) */
+.fure-page-item.active .fure-page-link {
+    background: var(--fure-primary);
+    border-color: var(--fure-primary);
+    color: #fff;
+    font-weight: 700;
+    cursor: default;
+}
+
+/* Disabled state */
+.fure-page-item.disabled .fure-page-link {
+    color: var(--fure-border);
+    background: var(--fure-bg);
+    border-color: var(--fure-border);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Dots (...) */
+.fure-page-dots {
+    background: transparent;
+    border-color: transparent;
+    color: var(--fure-text-muted);
+    min-width: 24px;
+    cursor: default;
+    letter-spacing: 0.05em;
+}
+
+/* Arrow icons sizing fix */
+.fure-page-link svg {
+    display: block;
+    flex-shrink: 0;
+}
+
+/* Responsive: stack info & pagination on mobile */
+@media (max-width: 576px) {
+    .fure-pagination-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+}

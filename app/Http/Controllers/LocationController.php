@@ -41,7 +41,8 @@ class LocationController extends Controller
             'description' => 'nullable|string',
         ]);
 
-        Location::create($request->all());
+        // Gunakan only() untuk memastikan hanya field yang diizinkan yang disimpan
+        Location::create($request->only(['name', 'description']));
 
         return redirect()->route('locations.index')->with('success', 'Lokasi berhasil ditambahkan.');
     }

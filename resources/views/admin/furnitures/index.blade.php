@@ -112,7 +112,7 @@
     @endforelse
 </div>
 
-<div class="mt-5 d-flex justify-content-center">
+<div class="mt-5 pt-2 border-top">
     {{ $furnitures->links() }}
 </div>
 @endsection
