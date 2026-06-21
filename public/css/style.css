@@ -226,12 +226,28 @@ h1, h2, h3, h4, h5, h6 {
 .delay-5 { animation-delay: 0.5s; }
 .delay-6 { animation-delay: 0.6s; }
 
+/* Navbar - Solid White Background */
+.navbar {
+    background-color: #FFFFFF !important;
+    border-bottom: 1px solid rgba(78, 52, 46, 0.1);
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: 0 2px 20px rgba(78, 52, 46, 0.08) !important;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link,
+.navbar .navbar-toggler {
+    color: var(--fure-text) !important;
+}
+
 /* Hero Section */
 .hero-section {
     padding: 160px 0;
-    background: linear-gradient(rgba(252, 251, 250, 0.9), rgba(252, 251, 250, 0.9)), url('https://images.unsplash.com/photo-1540638349517-3abd5afc3847?auto=format&fit=crop&w=1920&q=80');
+    background: linear-gradient(rgba(252, 248, 245, 0.55), rgba(252, 248, 245, 0.55)), url('/images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     position: relative;
 }
 

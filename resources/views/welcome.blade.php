@@ -35,11 +35,28 @@
 
         .hero-subtitle {
             font-size: 1.1rem; /* Smaller subtitle */
-            color: var(--fure-text-muted);
+            color: var(--fure-secondary);
+            font-weight: 500;
             max-width: 550px;
             margin-bottom: 2.5rem;
-            border-left: 2px solid var(--fure-accent);
+            border-left: 3px solid var(--fure-primary-light);
             padding-left: 20px;
+        }
+
+        .hero-content-box {
+            background: rgba(252, 251, 250, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 40px rgba(78, 52, 46, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content-box {
+                padding: 2rem;
+            }
         }
 
         .nav-link {
@@ -72,12 +89,12 @@
 
         .hero-section {
             padding: 160px 0;
-            background: linear-gradient(rgba(252, 251, 250, 0.7), rgba(252, 251, 250, 0.7)), url('{{ asset('images/hero-bg.jpg') }}');
+            background: linear-gradient(rgba(252, 248, 245, 0.52), rgba(252, 248, 245, 0.52)), url('{{ asset('images/hero-bg.jpg') }}');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             position: relative;
-            box-shadow: inset 0 0 150px rgba(0,0,0,0.1);
+            box-shadow: inset 0 0 150px rgba(0,0,0,0.05);
         }
 
         .furniture-preview {
@@ -137,7 +154,7 @@
     </div>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg py-3 sticky-top shadow-sm">
+    <nav class="navbar navbar-expand-lg py-3 sticky-top" id="main-navbar">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="/">
                 <img src="{{ asset('images/fure-logo.png') }}" alt="FURE Logo" style="height: 75px; width: auto; object-fit: contain;">
@@ -175,16 +192,18 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7">
-                    <span class="section-tag animate-fade-up">Platform Inventaris Profesional</span>
-                    <h1 class="hero-title animate-flip delay-1">Optimalkan Pengelolaan Aset Furniture Secara Presisi</h1>
-                    <p class="hero-subtitle animate-fade-up delay-2">Kendali penuh atas kualitas, lokasi, dan distribusi aset dalam satu ekosistem digital yang terintegrasi.</p>
-                    <div class="d-flex gap-3 animate-fade-up delay-3">
-                        @auth
-                            <a href="{{ route('admin.dashboard') }}" class="btn btn-primary px-5 py-3 shadow-fure">Kelola Sekarang</a>
-                        @else
-                            <a href="{{ route('login') }}" class="btn btn-primary px-5 py-3">Mulai Eksplorasi</a>
-                            <a href="#features" class="btn btn-outline-primary px-5 py-3">Pelajari Fitur</a>
-                        @endauth
+                    <div class="hero-content-box">
+                        <span class="section-tag animate-fade-up">Platform Inventaris Profesional</span>
+                        <h1 class="hero-title animate-flip delay-1">Optimalkan Pengelolaan Aset Furniture Secara Presisi</h1>
+                        <p class="hero-subtitle animate-fade-up delay-2">Kendali penuh atas kualitas, lokasi, dan distribusi aset dalam satu ekosistem digital yang terintegrasi.</p>
+                        <div class="d-flex gap-3 animate-fade-up delay-3">
+                            @auth
+                                <a href="{{ route('admin.dashboard') }}" class="btn btn-primary px-5 py-3 shadow-fure">Kelola Sekarang</a>
+                            @else
+                                <a href="{{ route('login') }}" class="btn btn-primary px-5 py-3">Mulai Eksplorasi</a>
+                                <a href="#features" class="btn btn-outline-primary px-5 py-3">Pelajari Fitur</a>
+                            @endauth
+                        </div>
                     </div>
                 </div>
             </div>
