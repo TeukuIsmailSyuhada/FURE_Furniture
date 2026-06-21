@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>FURE - Eksklusivitas Pengelolaan Furniture</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="{{ asset('images/fure-logo.png') }}">
     <!-- CSS Dependencies -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -125,10 +127,7 @@
     <!-- Pre-loader -->
     <div id="fure-loader">
         <div class="loader-content">
-            <div class="bg-fure-primary text-white p-3 d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px; border-radius: 0;">
-                <i class="bi bi-chair-fill fs-3"></i>
-            </div>
-            <h2 class="brand-text text-fure-primary fs-3 fw-800" style="letter-spacing: -0.03em;">FURE</h2>
+            <img src="{{ asset('images/fure-logo.png') }}" alt="FURE Logo" style="width: 140px; height: 140px; object-fit: contain; display: block; margin: 0 auto 12px;">
             <div class="mt-3">
                 <div class="progress bg-accent bg-opacity-25" style="height: 3px; width: 120px; border-radius: 0; margin: 0 auto;">
                     <div class="progress-bar bg-fure-primary" style="width: 100%; transition: width 2s ease-in-out;"></div>
@@ -141,10 +140,7 @@
     <nav class="navbar navbar-expand-lg py-3 sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="/">
-                <div class="bg-fure-primary text-white p-2 d-flex align-items-center justify-content-center me-2" style="width: 35px; height: 35px;">
-                    <i class="bi bi-chair-fill small"></i>
-                </div>
-                <span class="brand-text text-fure-primary fs-4">FURE</span>
+                <img src="{{ asset('images/fure-logo.png') }}" alt="FURE Logo" style="height: 75px; width: auto; object-fit: contain;">
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <i class="bi bi-list fs-2"></i>
@@ -298,10 +294,7 @@
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
                     <div class="d-flex align-items-center mb-4">
-                        <div class="bg-fure-primary text-white p-2 d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;">
-                            <i class="bi bi-chair-fill small"></i>
-                        </div>
-                        <span class="brand-text text-fure-primary fs-4">FURE</span>
+                        <img src="{{ asset('images/fure-logo.png') }}" alt="FURE Logo" style="height: 75px; width: auto; object-fit: contain;">
                     </div>
                     <p class="text-muted small">Transformasi digital untuk manajemen aset furniture yang lebih profesional dan elegan.</p>
                     <div class="d-flex gap-3 fs-6">

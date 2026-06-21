@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title') - Console FURE</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="{{ asset('images/fure-logo.png') }}">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -207,10 +209,7 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <a href="{{ route('admin.dashboard') }}" class="d-flex align-items-center text-decoration-none">
-                    <div class="bg-fure-primary text-white p-2 d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;">
-                        <i class="bi bi-chair-fill small"></i>
-                    </div>
-                    <span class="brand-text text-fure-primary fs-4">FURE</span>
+                    <img src="{{ asset('images/fure-logo.png') }}" alt="FURE Logo" style="height: 70px; width: auto; object-fit: contain;">
                 </a>
             </div>
 
